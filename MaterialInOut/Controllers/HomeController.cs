@@ -15,6 +15,10 @@ public class HomeController : Controller
 
     public IActionResult Index()
     {
+        if (this.Request.Method == "POST")
+        {
+
+        }
         return View();
     }
 
