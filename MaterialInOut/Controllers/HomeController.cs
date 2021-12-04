@@ -1,23 +1,33 @@
 ﻿using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using MaterialInOut.Models;
+using MaterialInOut.Repositories;
 
 namespace MaterialInOut.Controllers;
 
 public class HomeController : Controller
 {
     private readonly ILogger<HomeController> _logger;
+    private readonly IMaterialRepository _materialRepository;
 
-    public HomeController(ILogger<HomeController> logger)
+    public HomeController(ILogger<HomeController> logger,
+        IMaterialRepository materialRepository)
     {
         _logger = logger;
+        _materialRepository = materialRepository;
     }
 
-    public IActionResult Index(MaterialContentModel materialContent = null)
+    public IActionResult Index(MaterialContentModel? materialContent = null)
     {
-        if (this.Request.Method == "POST")
+        if (this.Request.Method == "POST" && materialContent != null)
         {
-
+            byte[] excelBytes;
+            using (var ms = new MemoryStream())
+            {
+                materialContent.MaterialFile.CopyTo(ms);
+                excelBytes = ms.ToArray();
+            }
+            _materialRepository.ImportExcelFile(excelBytes);
         }
         return View();
     }
