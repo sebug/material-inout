@@ -91,7 +91,7 @@ public class MaterialRepository : IMaterialRepository
             return;
         }
 
-        _items[ean] = new MaterialItem(mnemonic, label, ean);
+        _items[ean] = new MaterialItem(mnemonic, label, ean, true);
     }
 }
 
