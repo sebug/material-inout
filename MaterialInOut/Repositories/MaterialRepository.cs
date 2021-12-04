@@ -1,10 +1,14 @@
 ﻿using System;
+using System.Collections.Concurrent;
 using DocumentFormat.OpenXml.Packaging;
 using DocumentFormat.OpenXml.Spreadsheet;
+using MaterialInOut.Models;
 
 namespace MaterialInOut.Repositories;
 public class MaterialRepository : IMaterialRepository
 {
+    private ConcurrentDictionary<string, MaterialItem> _items = new ConcurrentDictionary<string, MaterialItem>();
+
     public void ImportExcelFile(byte[] bytes)
     {
         using (var ms = new MemoryStream(bytes))
@@ -86,6 +90,8 @@ public class MaterialRepository : IMaterialRepository
         {
             return;
         }
+
+        _items[ean] = new MaterialItem(mnemonic, label, ean);
     }
 }
 
