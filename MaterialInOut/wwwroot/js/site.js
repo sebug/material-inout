@@ -14,6 +14,7 @@ const processEAN = async (ean) => {
 const onEANSubmitted = (ev) => {
     const eanInput = ev.target.querySelector('input[name="ean"]');
     processEAN(eanInput.value);
+    ev.preventDefault();
     return false;
 };
 
