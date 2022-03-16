@@ -4,7 +4,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-builder.Services.AddTransient<IMaterialRepository, MaterialRepository>();
+builder.Services.AddSingleton<IMaterialRepository, MaterialRepository>();
 
 var app = builder.Build();
 

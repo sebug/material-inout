@@ -9,6 +9,11 @@ public class MaterialRepository : IMaterialRepository
 {
     private ConcurrentDictionary<string, MaterialItem> _items = new ConcurrentDictionary<string, MaterialItem>();
 
+    public IEnumerable<MaterialItem> GetItems()
+    {
+        return _items.Values;
+    }
+
     public void ImportExcelFile(byte[] bytes)
     {
         using (var ms = new MemoryStream(bytes))
