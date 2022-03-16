@@ -13,11 +13,15 @@
     <None Remove="Microsoft.VisualStudio.Web.CodeGeneration.Design" />
     <None Remove="Views\Material\" />
     <None Remove="ZXing.Net" />
+    <None Remove="ZXing.Net.Bindings.ImageSharp" />
+    <None Remove="SixLabors.ImageSharp" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="DocumentFormat.OpenXml" Version="2.14.0" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.0" />
     <PackageReference Include="ZXing.Net" Version="0.16.8" />
+    <PackageReference Include="ZXing.Net.Bindings.ImageSharp" Version="0.16.12" />
+    <PackageReference Include="SixLabors.ImageSharp" Version="2.1.0" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Services\" />
