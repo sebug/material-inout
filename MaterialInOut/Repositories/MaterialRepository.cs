@@ -9,6 +9,11 @@ public class MaterialRepository : IMaterialRepository
 {
     private ConcurrentDictionary<string, MaterialItem> _items = new ConcurrentDictionary<string, MaterialItem>();
 
+    public MaterialItem? GetItem(string ean)
+    {
+        return _items.GetValueOrDefault(ean);
+    }
+
     public IEnumerable<MaterialItem> GetItems()
     {
         return _items.Values;

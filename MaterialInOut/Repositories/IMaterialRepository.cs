@@ -8,6 +8,8 @@ namespace MaterialInOut.Repositories
         void ImportExcelFile(byte[] bytes);
 
         IEnumerable<MaterialItem> GetItems();
+
+        MaterialItem? GetItem(string ean);
     }
 }
 

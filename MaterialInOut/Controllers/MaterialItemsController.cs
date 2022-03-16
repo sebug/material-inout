@@ -32,9 +32,9 @@ namespace MaterialInOut.Controllers
 
         // GET api/values/5
         [HttpGet("{id}")]
-        public string Get(int id)
+        public MaterialItem? Get(string id)
         {
-            return "value";
+            return _materialRepository.GetItem(id);
         }
 
         // POST api/values

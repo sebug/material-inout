@@ -4,7 +4,15 @@
 // Write your JavaScript code.
 
 const processEAN = async (ean) => {
-    console.log(ean);
+    const fetchResponse = await fetch('/api/MaterialItems/' + ean);
+    const responseJSON = await fetchResponse.json();
+
+    if (responseJSON) {
+        const ul = document.querySelector('#scanned-material');
+        const li = document.createElement('li');
+        li.innerHTML = '<b>' + responseJSON.label + '</b> ' + responseJSON.mnemonic + ' (' + ean + ')';
+        ul.appendChild(li);
+    }
 };
 
 /**
