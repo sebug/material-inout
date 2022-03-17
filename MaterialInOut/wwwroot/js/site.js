@@ -31,4 +31,8 @@ const eanReadoutForms = Array.from(document.querySelectorAll('#eanreadout'));
 
 for (let eanReadoutForm of eanReadoutForms) {
     eanReadoutForm.addEventListener('submit', onEANSubmitted);
+    const eanInput = document.querySelector('input[name="ean"]');
+    if (eanInput) {
+        eanInput.focus();
+    }
 }
