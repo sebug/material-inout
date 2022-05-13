@@ -3,8 +3,15 @@
     ViewData["Title"] = "Bon Matériel";
 }
 
-<h2>Matériel Sorti le @(DateTime.Now.ToString("dd.MM.yyyy"))</h2>
-<p>@Model.EANs</p>
+<h2>Matériel Sorti le @(DateTime.Now.ToString("dd.MM.yyyy")):</h2>
+<ul>
+    @{
+        foreach (var material in Model.MaterialItems)
+        {
+            <li data-ean="@material.Ean"><b>@material.Label</b> @material.Mnemonic (@material.Ean)</li>
+        }
+    }
+</ul>
 <p>Responsable: @(Model.Name)</p>
 <p>Signature:</p>
 
