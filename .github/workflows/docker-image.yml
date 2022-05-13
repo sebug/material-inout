@@ -22,6 +22,6 @@ jobs:
       with:
         username: ${{ secrets.DOCKER_HUB_USERNAME }}
         password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
-    - name: Build the Docker image
+    - name: Push the Docker image
       working-directory: MaterialInOut
       run: docker push ${{ secrets.DOCKER_HUB_USERNAME }}/material-in-out:$(git rev-parse --short HEAD)
