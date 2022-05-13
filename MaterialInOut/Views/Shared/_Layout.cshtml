@@ -8,7 +8,15 @@
 </head>
 <body>
     <header>
-        <h1>Material In/Out</h1>
+        @{
+            if (ViewData.ContainsKey("Title"))
+            {
+                <h1>@ViewData["Title"]</h1>
+            } else
+            {
+                <h1>Material In/Out</h1>
+            }
+            }
     </header>
     <main>
         @RenderBody()
