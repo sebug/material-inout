@@ -13,5 +13,15 @@ namespace MaterialInOut.Controllers
         {
             return View();
         }
+
+        public IActionResult Bill(BillRequestViewModel? request)
+        {
+            var response = new BillResponseViewModel();
+            if (request != null)
+            {
+                response.Name = request.Name;
+            }
+            return View(response);
+        }
     }
 }

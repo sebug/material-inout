@@ -1,0 +1,11 @@
+﻿@model MaterialInOut.Models.BillResponseViewModel
+@{
+    ViewData["Title"] = "Bon Matériel";
+}
+
+<h2>Matériel Sorti le @(DateTime.Now.ToString("dd.MM.yyyy"))</h2>
+<p>Responsable: @(Model.Name)</p>
+<p>Signature:</p>
+
+
+<p><a href="/Material/Index">Sortie Matériel</a></p>
