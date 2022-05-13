@@ -25,3 +25,5 @@ jobs:
     - name: Push the Docker image
       working-directory: MaterialInOut
       run: docker push ${{ secrets.DOCKER_HUB_USERNAME }}/material-in-out:$(git rev-parse --short HEAD)
+    - name: Echo the hash
+      run: echo ${{ secrets.DOCKER_HUB_USERNAME }}/material-in-out:$(git rev-parse --short HEAD)
