@@ -407,3 +407,5 @@ ASALocalRun/
 # Inventory files
 articles.xlsx
 ~$articles.xlsx
+
+MaterialInOut/wwwroot/logo.png
