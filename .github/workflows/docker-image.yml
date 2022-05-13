@@ -17,3 +17,11 @@ jobs:
     - name: Build the Docker image
       working-directory: MaterialInOut
       run: docker build . --file Dockerfile --tag ${{ secrets.DOCKER_HUB_USERNAME }}/material-in-out:$(git rev-parse --short HEAD)
+    - name: Login to Docker Hub
+      uses: docker/login-action@v1
+      with:
+        username: ${{ secrets.DOCKER_HUB_USERNAME }}
+        password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
+    - name: Build the Docker image
+      working-directory: MaterialInOut
+      run: docker push ${{ secrets.DOCKER_HUB_USERNAME }}/material-in-out:$(git rev-parse --short HEAD)
