@@ -17,6 +17,9 @@ jobs:
     - name: Fetch Logo
       working-directory: MaterialInOut/wwwroot
       run: curl ${{ secrets.LOGO_URL }} -o logo.png
+    - name: Fetch Favicon
+      working-directory: MaterialInOut/wwwroot
+      run: curl ${{ secrets.FAVICON_URL }} -o favicon.ico
     - name: Build the Docker image
       working-directory: MaterialInOut
       run: docker build . --file Dockerfile --tag ${{ secrets.DOCKER_HUB_USERNAME }}/material-in-out:$(git rev-parse --short HEAD)
