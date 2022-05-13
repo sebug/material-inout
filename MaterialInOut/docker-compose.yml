@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  materialinout:
+    image: ${DOCKER_REGISTRY-}materialinout
+    build:
+      context: .
+      dockerfile: ./Dockerfile
