@@ -9,9 +9,15 @@ const processEAN = async (ean) => {
 
     if (responseJSON) {
         const ul = document.querySelector('#scanned-material');
-        const li = document.createElement('li');
-        li.innerHTML = '<b>' + responseJSON.label + '</b> ' + responseJSON.mnemonic + ' (' + ean + ')';
-        ul.appendChild(li);
+        const existingElement = ul.querySelector('li[data-ean="' + ean + '"]');
+        if (existingElement) {
+            console.log('déjà sorti: ' + responseJSON.label + ' - ' + ean);
+        } else {
+            const li = document.createElement('li');
+            li.setAttribute('data-ean', ean);
+            li.innerHTML = '<b>' + responseJSON.label + '</b> ' + responseJSON.mnemonic + ' (' + ean + ')';
+            ul.appendChild(li);
+        }
     }
 };
 
