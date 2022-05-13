@@ -15,15 +15,11 @@ html {
 }
 
 body {
-  margin-bottom: 60px;
-}
-
-header {
+    margin-bottom: 60px;
     background-image: url('../logo.png');
     background-repeat: no-repeat;
-    min-height: 160px;
 }
 
-header h1 {
+header, main {
     margin-left: 180px;
 }
