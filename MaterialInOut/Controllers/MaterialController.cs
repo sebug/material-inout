@@ -20,6 +20,7 @@ namespace MaterialInOut.Controllers
             if (request != null)
             {
                 response.Name = request.Name;
+                response.EANs = request.EANs;
             }
             return View(response);
         }

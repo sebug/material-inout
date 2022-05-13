@@ -14,8 +14,9 @@
 
 </ul>
 
-<form method="post" action="/Material/Bill">
-    <input type="text" name="Name" />
+<form method="post" action="/Material/Bill" id="create-bill-of-material">
+    <input type="text" name="Name" required />
+    <input type="hidden" name="EANs" />
 
     <button type="submit">Créer bon matériel</button>
 </form>

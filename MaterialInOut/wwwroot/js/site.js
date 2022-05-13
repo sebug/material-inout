@@ -42,3 +42,17 @@ for (let eanReadoutForm of eanReadoutForms) {
         eanInput.focus();
     }
 }
+
+const billOfMaterialForms = Array.from(document.querySelectorAll('#create-bill-of-material'));
+
+const onBillOfMaterialRequested = (ev) => {
+    const eanLists = Array.from(document.querySelectorAll('li[data-ean]'));
+    const eans = eanLists.map(li => li.getAttribute('data-ean'));
+    eans.join(',');
+    document.querySelector('input[name="EANs"]').setAttribute('value', eans);
+};
+
+
+for (let billOfMaterialForm of billOfMaterialForms) {
+    billOfMaterialForm.addEventListener('submit', onBillOfMaterialRequested);
+}
